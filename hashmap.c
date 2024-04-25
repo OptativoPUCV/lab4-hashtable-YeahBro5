@@ -77,23 +77,23 @@ void enlarge(HashMap * map) {
   if (map == NULL) return;
   
   Pair **aux = map->buckets;
+  long antiguaCapacidad = map->capacity;
   long nuevaCapacidad =  (map->capacity) * 2;
 
   Pair **NuevoBuckets = (Pair **)calloc(nuevaCapacidad, sizeof(Pair *));
   if (NuevoBuckets == NULL) return;
 
+  map->capacity = nuevaCapacidad;
   map->buckets = NuevoBuckets;
   map->size = 0;
   
-  for (long i = 0; i < map->capacity ; i++)
+  for (long i = 0; i < antiguaCapacidad ; i++)
     {
       if (aux[i] != NULL && aux[i]-> key != NULL)
       {
         insertMap(map, aux[i]->key, aux[i]->value);
       }
     }
-
-  map->capacity = nuevaCapacidad;
 }
 
 
