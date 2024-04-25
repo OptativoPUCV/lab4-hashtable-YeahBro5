@@ -106,6 +106,10 @@ HashMap * createMap(long capacity) {
 void eraseMap(HashMap * map,  char * key) {
   if (map == NULL || key  ==  NULL) return;
   Pair *PairAEliminar = searchMap(map, key);
+  if (PairAEliminar == NULL)
+  {
+    return;
+  }
 
   PairAEliminar->key = NULL;
   map->size -= 1;
