@@ -113,10 +113,11 @@ Pair * searchMap(HashMap * map,  char * key) {
 
   Pair *newPair =  map->buckets[posicion];
 
-  if (is_equal(newPair, key))
-  {
-    return newPair;
-  }
+//  if (is_equal(newPair, key))
+ // {
+  //  return newPair;
+ // }
+  return newPair;
  
 
 Pair * firstMap(HashMap * map) {
