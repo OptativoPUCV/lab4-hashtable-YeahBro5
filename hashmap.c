@@ -155,7 +155,7 @@ Pair * firstMap(HashMap * map) {
   if (map == NULL || map->size < 0) return NULL; 
   for (long i = 0; i <= map->capacity;i++)
     {
-      if (map->buckets[i]->key != NULL) return map->buckets[i];
+      if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) return map->buckets[i];
     }
   
 
