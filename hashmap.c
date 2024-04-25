@@ -65,7 +65,7 @@ HashMap * createMap(long capacity) {
       map->current = -1;
     }
   
-    map->buckets = (Pair **)calloc(map->capacity, sizeof(Pair **));
+    map->buckets = (Pair **)calloc(map->capacity, sizeof(Pair *));
     if (map->buckets == NULL)
     {
       printf("No se pudo reservar memoria para los buckets del mapa\n");
