@@ -120,9 +120,18 @@ Pair * searchMap(HashMap * map,  char * key)
     map->current = posicion;
     return newPair;
   }
+  else
+    {
+      while (!is_equal(newPair->key, key))
+        {
+          newPair = map->buckets[posicion];
+          posicion++;
+          if (posicion == map->capacity) posicion = 0;
+        }
+      return newPair;
+    }
 
   return NULL;
-  
 }
 
 Pair * firstMap(HashMap * map) {
