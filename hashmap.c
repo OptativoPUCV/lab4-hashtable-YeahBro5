@@ -121,16 +121,21 @@ Pair * searchMap(HashMap * map,  char * key)
     return newPair;
   }
   else
+  {
+    while (map->buckets[posicion] != NULL)
     {
-      while (!is_equal(newPair->key, key))
-        {
-          newPair = map->buckets[posicion];
-          posicion++;
-          if (posicion == map->capacity) posicion = 0;
-        }
-      map->current = posicion;
-      return newPair;
+      newPair =  map->buckets[posicion];
+      if (is_equal(newPair->key, key))
+      {
+        map->current = posicion;
+        return newPair;
+      }
+      
+      posicion++;
+      if (posicion == map->capacity) posicion = 0;
     }
+    
+  }
 
   return NULL;
 
