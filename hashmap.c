@@ -120,6 +120,7 @@ Pair * searchMap(HashMap * map,  char * key)
     return newPair;
   }
   return newPair;
+  map->current = posicion;
   
 }
 
