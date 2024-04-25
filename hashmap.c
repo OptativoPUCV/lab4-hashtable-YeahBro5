@@ -52,8 +52,26 @@ void enlarge(HashMap * map) {
 
 
 HashMap * createMap(long capacity) {
-
-    return NULL;
+    HashMap * map = (HashMap *)malloc(sizeof(HashMap));
+    if (map == NULL)
+    {
+      printf("No se pudo reservar memoria para el mapa\n");
+      return NULL;
+    }
+    else{
+      map->size = 0;
+      map->capacity = capacity;
+      map->current = -1;
+    }
+  
+    map->buckets = (Pair **)calloc(map->capacity, sizeof(Pair **));
+    if (map->buckets == NULL)
+    {
+      printf("No se pudo reservar memoria para los buckets del mapa\n");
+      return NULL;
+    }
+  
+    return map;
 }
 
 void eraseMap(HashMap * map,  char * key) {    
