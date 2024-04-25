@@ -167,7 +167,6 @@ Pair * firstMap(HashMap * map) {
 Pair * nextMap(HashMap * map) {
   if (map == NULL) return NULL;
   long posicion =  map->current;
-  Pair *newPair = map->buckets[posicion];
 
   for (long i = posicion + 1; i < map->capacity ; i++)
     {
