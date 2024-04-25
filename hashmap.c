@@ -125,7 +125,7 @@ Pair * searchMap(HashMap * map,  char * key)
       while (!is_equal(newPair->key, key))
         {
           newPair = map->buckets[posicion];
-          if (posicion == map->capacity) posicion = 0;
+          if (posicion == map->size) posicion = 0;
           posicion++;
         }
       map->current = posicion;
