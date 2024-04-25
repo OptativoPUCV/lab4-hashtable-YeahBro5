@@ -115,10 +115,10 @@ Pair * searchMap(HashMap * map,  char * key)
 
   Pair *newPair =  map->buckets[posicion];
 
-  if (is_equal(newPair, key))
+  if (is_equal(newPair->key, key))
   {
-    return newPair;
     map->current = posicion;
+    return newPair;
   }
 
   return NULL;
