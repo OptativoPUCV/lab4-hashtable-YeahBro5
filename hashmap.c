@@ -40,6 +40,14 @@ int is_equal(void* key1, void* key2){
 
 
 void insertMap(HashMap * map, char * key, void * value) {
+  long posicion = hash(key, map->capacity);
+  
+  map->buckets[posicion]->key = key;
+  map->buckets[posicion]->value = value;
+  
+
+  
+  
 
 
 }
@@ -80,7 +88,8 @@ void eraseMap(HashMap * map,  char * key) {
 
 }
 
-Pair * searchMap(HashMap * map,  char * key) {   
+Pair * searchMap(HashMap * map,  char * key) {
+  
 
 
     return NULL;
