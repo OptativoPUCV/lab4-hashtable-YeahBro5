@@ -110,7 +110,7 @@ void eraseMap(HashMap * map,  char * key) {
 
 Pair * searchMap(HashMap * map,  char * key)
 {
-  long contador = 0;
+  
   long posicion =  hash(key, map->capacity);
 
   Pair *newPair =  map->buckets[posicion];
@@ -121,20 +121,39 @@ Pair * searchMap(HashMap * map,  char * key)
     return newPair;
   }
   else
+  {
+    for (long i = 0; i <= map->capacity; i++)
+      {
+        newPair =  map->buckets[i];
+        if (is_equal(newPair->key, key))
+        {
+          map->current = posicion;
+          return newPair;
+        }
+      }
+  }
+
+
+
+
+  return NULL;
+
+    
+/*
+    
     {
       while (!is_equal(newPair->key, key))
         {
           newPair = map->buckets[posicion];
-          if (contador == map->capacity) return NULL;
           posicion++;
-          contador++;
           if (posicion == map->capacity) posicion = 0;
         }
       map->current = posicion;
       return newPair;
     }
 
-  return NULL;
+*/
+
 
 }
 
