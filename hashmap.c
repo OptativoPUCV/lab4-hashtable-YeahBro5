@@ -117,6 +117,7 @@ Pair * searchMap(HashMap * map,  char * key)
 
   if (is_equal(newPair, key))
   {
+    printf("alo");
     return newPair;
   }
   map->current = posicion;
